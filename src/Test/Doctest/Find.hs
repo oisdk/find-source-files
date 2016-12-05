@@ -1,14 +1,16 @@
-module Test.Doctest.Find (findSourceFiles) where
+module Test.DocTest.Find
+  (findSourceFiles)
+  where
 
-import           Distribution.ModuleName               hiding (main)
-import           Distribution.PackageDescription
-import           Distribution.PackageDescription.Parse
-import           Distribution.Verbosity
+import Distribution.ModuleName hiding (main)
+import Distribution.PackageDescription
+import Distribution.PackageDescription.Parse
+import Distribution.Verbosity
 
-import           System.Directory
-import           System.FilePath
+import System.Directory
+import System.FilePath
 
-import           Control.Monad.List
+import Control.Monad.List
 
 findSourceFiles :: IO [FilePath]
 findSourceFiles =
