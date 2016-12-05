@@ -14,15 +14,14 @@ findSourceFiles :: IO [FilePath]
 findSourceFiles =
     runListT $
     do curDir <- lift getCurrentDirectory
-       let getCabalFile =
-               map (curDir </>) . filter ((".cabal" ==) . takeExtension)
+       let getCabalFile = filter ((".cabal" ==) . takeExtension)
        cabalFile <- (ListT . fmap getCabalFile . getDirectoryContents) curDir
        packDesc <- lift $ readPackageDescription normal cabalFile
        let getLocs em lbi =
                ListT $
                filterM
                    doesFileExist
-                   [ curDir </> dir </> mdn <.> ext
+                   [ dir </> mdn <.> ext
                    | dir <- hsSourceDirs lbi
                    , mdn <- map toFilePath em
                    , ext <- ["lhs", "hs"] ]
