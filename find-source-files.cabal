@@ -1,5 +1,5 @@
 name:                find-source-files
-version:             0.1.0.0
+version:             0.2.0.0
 synopsis:            Initial project template from stack
 description:         Find source files at runtime using cabal
 homepage:            https://github.com/oisdk/find-source-files#readme
